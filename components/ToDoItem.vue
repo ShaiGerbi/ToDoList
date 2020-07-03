@@ -8,6 +8,7 @@
 
     <v-list-item-action>
       <v-chip-group>
+        <v-chip small>{{ category }}</v-chip>
         <v-chip small>{{ completed }}</v-chip>
       </v-chip-group>
     </v-list-item-action>
@@ -23,6 +24,10 @@ export default {
   props: {
     title: {
       required: true,
+      type: String,
+    },
+    category: {
+      required: false,
       type: String,
     },
     completed: {

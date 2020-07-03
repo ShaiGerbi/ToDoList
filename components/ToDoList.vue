@@ -3,7 +3,7 @@
   <v-card>
     <v-list nav>
 
-      <to-do-item v-for="item in items" :key="item.id" :title="item.title" :completed="item.completed" />
+      <to-do-item v-for="item in items" :key="item.id" :title="item.title" :category="item.category" :completed="item.completed" />
 
     </v-list>
   </v-card>
