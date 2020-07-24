@@ -3,10 +3,15 @@
 </template>
 
 <script>
+import index from '@/mixins/index';
+
 export default {
   name: 'todos-index',
 
+  mixins: [index],
+
   created() {
+    this.page = 'todos';
     this.getData();
   },
 
