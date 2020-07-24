@@ -1,31 +1,35 @@
 <template>
-  <to-do-list :items="items" />
+  <to-do-list :items="all" />
 </template>
 
 <script>
 export default {
   name: 'todos-index',
 
-  data() {
-    return {
-      items: [],
-    }
-  },
-
   created() {
-    this.getAll();
+    this.getData();
   },
 
   methods: {
-    getAll() {
-      this.$axios.get('todos')
-      .then(response => {
-        this.items = response.data;
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    getData() {
+      this.$store.dispatch('todos/fetch');
+    },
+
+  },
+
+  computed: {
+    all() {
+      return this.$store.getters['todos/all'];
+    },
+
+    completed() {
+      return this.$store.getters['todos/completed'];
+    },
+
+    uncompleted() {
+      return this.$store.getters['todos/uncompleted'];
     },
   },
+
 }
 </script>
